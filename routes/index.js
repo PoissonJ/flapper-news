@@ -87,11 +87,11 @@ router.post('/posts/:post/comments', function(req, res, next) {
   });
 });
 
-router.post('/posts/:post/comments/:comment/upvote', function(req, res, next) {
+router.put('/posts/:post/comments/:comment/upvote', function(req, res, next) {
   req.comment.upvote(function(err, comment) {
     if (err) { return next(err);}
 
-    res.json(post);
+    res.json(comment);
   })
 
 });
