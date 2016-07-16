@@ -32,13 +32,27 @@ router.get('/posts', function(req, res, next) {
   });
 });
 
+router.get('/posts/:post', function(req, res) {
+  res.json(req.post);
+});
+
 router.post('/posts', function(req, res, next) {
   var post = new Post(req.body);
 
   post.save(function(err, post) {
     if (err){ return next(err); }
 
+    console.log(post._id);
 
     res.json(post);
   });
 });
+
+router.put('/posts/:post/upvote', function(req, res, next) {
+  console.log("here");
+  req.post.upvote(function(err, post) {
+    if (err) { return next(err);}
+
+    res.json(post);
+  })
+})
