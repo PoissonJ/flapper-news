@@ -37,9 +37,11 @@ router.param('comment', function(req, res, next, id) {
 });
 
 router.get('/posts', function(req, res, next) {
+  console.log('Here');
   Post.find(function(err, posts) {
     if (err) { return next(err); }
 
+    console.log("Posts:" + posts);
     res.json(posts);
   });
 });
