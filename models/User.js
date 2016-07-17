@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var crypto = require('crypto');
-var jwt = require('jwt');
+var jwt = require('express-jwt');
 
 var UserSchema = new mongoose.Schema({
   username: {type: String, lowercase: true, unique: true},
